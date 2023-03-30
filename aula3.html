@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    valor 1: <input type="number" id="number1" /><br /><br />
+    valor 2: <input type="number" id="number2" /><br /><br />
+    operacao: <input type="text" id="operacao" /><br /><br />
+    <input type="button" value="submit" onclick="calcular()" />
+    <p id="resultado"></p>
+
+    <script>
+      function calcular() {
+        let valor1 = Number(
+          document.getElementById("number1".getElementById).value
+        );
+        let valor2 = Number(document.getElementById("number2").value);
+        let operacao = document.getElementById("operacao").value;
+        let resultado;
+
+        if (operacao == "+") resultado = valor1 + valor2;
+        else if (operacao == "*") resultado = valor1 + valor2;
+        else if (operacao == "/") resultado = valor1 + valor2;
+        else if (operacao == "-") resultado = valor1 + valor2;
+        else resultado = "operador incorreto!!!";
+
+        document.getElementById("resultado").innerHTML =
+          "o resultado da operação é:";
+      }
+    </script>
+  </body>
+</html>
