@@ -22,9 +22,16 @@ img {
   display: block;
 }
 
+.layout {
+  background-color: rgb(132, 167, 167);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .layout-header {
   background-color: rgb(130, 122, 147);
-  height: 13vh;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
 }
@@ -45,7 +52,7 @@ img {
 }
 
 .layout_footer {
-  height: 5vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,3 +64,4 @@ img {
   height: 100%;
   min-width: 100%;
 }
+
