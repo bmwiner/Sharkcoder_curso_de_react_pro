@@ -1,9 +1,9 @@
 import React from 'react'
 
-function logo() {
+function logo({titulo}) {
   return (
     <div className='logo'>
-        Sharckcoders Cursos
+        {titulo}
     </div>
   )
 }

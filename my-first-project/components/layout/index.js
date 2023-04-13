@@ -121,6 +121,9 @@ function Layout({ children }) {
     <Box sx={{position: 'relative'}}>
       <AppBar  open={open} sx={{zIndex: 1}}>
           <Header />
+          <Box className='layout' component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {children}
+    </Box>
       </AppBar>
       <Drawer className='sideBar' variant="permanent" open={open}>
         <DrawerHeader>
@@ -177,9 +180,7 @@ function Layout({ children }) {
           ))}
         </List>
       </Drawer>
-      <Box className='layout' component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {children}
-    </Box>
+    <Footer name="footer do projeto2"/>
     </Box>
   );
 }

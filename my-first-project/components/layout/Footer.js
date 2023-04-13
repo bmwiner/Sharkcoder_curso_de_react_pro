@@ -1,7 +1,7 @@
 import React from "react";
 
-function Footer() {
-  return <div className="layout_footer">Footer do projeto</div>;
+function Footer(props) {
+  return <div className="layout_footer">{props.name}</div>;
 }
 
 export default Footer;
