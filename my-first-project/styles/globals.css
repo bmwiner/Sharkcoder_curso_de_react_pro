@@ -23,7 +23,7 @@ img {
 }
 
 .layout {
-  background-color: rgb(132, 167, 167);
+  background-color: rgb(66, 64, 197);
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -40,8 +40,13 @@ img {
 
 .layout-navbar {
   display: flex;
-  width: 45vh;
+  width: 85vh;
   justify-content: space-evenly;
+}
+
+.layout-navbar p:hover {
+  background-color: aqua;
+  
 }
 
 .logo {

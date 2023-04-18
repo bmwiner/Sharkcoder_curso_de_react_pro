@@ -13,6 +13,7 @@ function NavBar() {
       <p onClick={() =>handleClick('/sobreOCurso')}>Sobre o curso</p>
       <p onClick={() =>handleClick('/horarios')}>Horários</p>
       <p onClick={() =>handleClick('/ondeEstamos')}>Onde Estamos</p>
+      <p onClick={() =>handleClick('/TestemunhosAlunos')}>Testemunhos Alunos</p>
     </div>
   );
 }

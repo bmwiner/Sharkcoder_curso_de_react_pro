@@ -18,7 +18,7 @@ function Index() {
   //JSON representation [{nome: 'joão', email: 'dycj@exemple.com'},
   //                      {nome: 'maria', email: 'dycj@exemple.com'}]
 
-  // useFunction (() => {funcao, [controle]})
+  // useEfect (() => {funcao, [controle]})
   // function nomedafuncao(){corpo da funcao}
 
   useEffect(() => {
@@ -26,6 +26,16 @@ function Index() {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/users"
       );
+
+      //metedos HTTP para retornar dados - CRUD
+      //GET - recuperar dados
+      //POST - criar dados
+      //PUT - atualizar dados
+      //DELETE - apagar dados
+
+      //REST API
+      //Microservice
+
       const data = await response.json();
       setAlunos(data);
     }
