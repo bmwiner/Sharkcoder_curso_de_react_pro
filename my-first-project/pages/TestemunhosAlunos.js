@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function TestemunhosAlunos() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     function fetchTestemunhosAlunos() {
-      fetch("https://jsonplaceholder.typicode.com/posts")
+      fetch("/api/TestemunhosAlunos")
         .then((response) => response.json())
         .then((data) => setData(data));
     }
@@ -14,18 +13,12 @@ function TestemunhosAlunos() {
     fetchTestemunhosAlunos();
   }, []);
 
-  return data.map((TestemunhosAlunos, index) => {
-    return (
-      <>
-        Aluno: {TestemunhosAlunos.userId}
-        <br />
-        Aluno: {TestemunhosAlunos.title}
-        <br />
-        Aluno: {TestemunhosAlunos.body}
-        <br />
-      </>
-    );
-  });
+  return (
+    data.map((TestemunhosAlunos) => (
+      // eslint-disable-next-line react/jsx-key
+      <p>Testemunhos: {TestemunhosAlunos.title} </p>
+  ))
+  )
 }
 
 export default TestemunhosAlunos;
