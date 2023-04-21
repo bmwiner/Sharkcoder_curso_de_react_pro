@@ -19,4 +19,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       },
     ]);
   }
+  if (req.method === "POST") {
+    const {aluno, title, description} = req.body;
+    console.log(aluno,title, description);
+    return res.status(201).json({ message: "aluno matriculado com sucesso" });
+  }
 }

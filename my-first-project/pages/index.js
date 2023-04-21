@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import { AlunosContext } from "../components/layout/context/AlunosContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -14,6 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Index() {
   const [alunos, setAlunos] = useState([]);
+  const alunos2 = useContext(AlunosContext);
 
   //JSON representation [{nome: 'joão', email: 'dycj@exemple.com'},
   //                      {nome: 'maria', email: 'dycj@exemple.com'}]
@@ -22,25 +24,9 @@ function Index() {
   // function nomedafuncao(){corpo da funcao}
 
   useEffect(() => {
-    async function buscarAlunos() {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-
-      //metedos HTTP para retornar dados - CRUD
-      //GET - recuperar dados
-      //POST - criar dados
-      //PUT - atualizar dados
-      //DELETE - apagar dados
-
-      //REST API
-      //Microservice
-
-      const data = await response.json();
-      setAlunos(data);
-    }
-    buscarAlunos();
-  }, []);
+    console.log(alunos2)
+    setAlunos(alunos2)
+  }, [alunos2]);
 
   return (
     <Box sx={{ flexGrow: 1, textAlign: "center" }}>
@@ -53,7 +39,7 @@ function Index() {
         {alunos.map((aluno, index) => (
           <Grid item xs={12} sm={4} md={4} key={index}>
             <Item>
-              <p>Nome: {aluno.name} </p>
+              <p>Nome: {aluno.nome} </p>
               <p>Email: {aluno.email}</p>
               <p>Phone: {aluno.phone}</p>
             </Item>
