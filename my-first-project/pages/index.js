@@ -24,8 +24,8 @@ function Index() {
   // function nomedafuncao(){corpo da funcao}
 
   useEffect(() => {
-    console.log(alunos2)
-    setAlunos(alunos2)
+    console.log(alunos2);
+    setAlunos(alunos2);
   }, [alunos2]);
 
   return (
@@ -36,12 +36,12 @@ function Index() {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {alunos.map((aluno, index) => (
+        {alunos?.map((aluno, index) => (
           <Grid item xs={12} sm={4} md={4} key={index}>
             <Item>
-              <p>Nome: {aluno.nome} </p>
-              <p>Email: {aluno.email}</p>
-              <p>Phone: {aluno.phone}</p>
+              <p>Aluno: {aluno.nome} </p>
+              <p>Curso: {aluno.about}</p>
+              <p>Testemunho: {aluno.description}</p>
             </Item>
           </Grid>
         ))}
