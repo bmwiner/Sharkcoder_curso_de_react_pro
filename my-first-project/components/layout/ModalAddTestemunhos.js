@@ -19,23 +19,13 @@ function ModalAddTestemunhos({ open, handleClose, handleSubmit }) {
       open={open}
       onClose={handleClose}
     >
-      {" "}
       <Box>
-        {" "}
         <Typography variant="h5" component="h2" mb={2}>
-          {" "}
-          Adicionar Aluno{" "}
-        </Typography>{" "}
+          Adicionar Aluno
+        </Typography>
         <form onSubmit={handleSubmit}>
-          {" "}
-          <TextField
-            id="nome"
-            name="nome"
-            label="Nome"
-            fullWidth
-            required
-          />{" "}
-          <TextField id="about" name="about" label="Curso" fullWidth required />{" "}
+          <TextField id="nome" name="nome" label="Nome" fullWidth required />
+          <TextField id="about" name="about" label="Curso" fullWidth required />
           <TextField
             id="description"
             name="description"
@@ -44,14 +34,14 @@ function ModalAddTestemunhos({ open, handleClose, handleSubmit }) {
             multiline
             rows={4}
             required
-          />{" "}
+          />
           <Button type="submit" variant="contained" sx={{ mt: 2 }}>
-            {" "}
-            Adicionar{" "}
-          </Button>{" "}
-        </form>{" "}
-      </Box>{" "}
+            Adicionar
+          </Button>
+        </form>
+      </Box>
     </Modal>
   );
 }
+
 export default ModalAddTestemunhos;
