@@ -1,12 +1,21 @@
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React from "react";
 
-function ModalAddTestemunhos({ open, handleClose, handleSubmit }) {
-  console.log(open);
+function ModalAddTestemunho({ open, handleClose, handleSubmit }) {
+
+  const submit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.target); 
+    const data = Object.fromEntries(formData.entries());
+    handleSubmit(data);
+  }
   return (
+    <div>
+      {open && <div className="modal-backdrop" />}
+      <div>
     <Modal
-      sx={{
-        backgroundColor: "background.paper",
+          sx={{
+        backgroundColor: "white",
         position: "absolute",
         top: "50%",
         left: "50%",
@@ -23,7 +32,7 @@ function ModalAddTestemunhos({ open, handleClose, handleSubmit }) {
         <Typography variant="h5" component="h2" mb={2}>
           Adicionar Aluno
         </Typography>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submit}>
           <TextField id="nome" name="nome" label="Nome" fullWidth required />
           <TextField id="about" name="about" label="Curso" fullWidth required />
           <TextField
@@ -40,8 +49,10 @@ function ModalAddTestemunhos({ open, handleClose, handleSubmit }) {
           </Button>
         </form>
       </Box>
-    </Modal>
+        </Modal>
+        </div>
+      </div>
   );
 }
 
-export default ModalAddTestemunhos;
+export default ModalAddTestemunho;

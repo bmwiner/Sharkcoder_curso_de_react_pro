@@ -15,10 +15,14 @@ function AlunosProvider({ children }) {
     fetchTestemunhosAlunos();
   }, []);
 
+  const dispatch = (newTestemunho) => {
+    setAlunos((prevTestemunhos) => [...prevTestemunhos, newTestemunho]) //arrow funtion
+  }
+
   return (
     <AlunosContext.Provider value={alunos}>
       {" "}
-      <AlunosDispatchContext.Provider value={[setAlunos]}>
+      <AlunosDispatchContext.Provider value={dispatch}>
         {" "}
         {children}{" "}
       </AlunosDispatchContext.Provider>{" "}

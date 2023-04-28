@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { AlunosContext, AlunosDispatchContext } from "../components/layout/context/AlunosContext";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -7,12 +8,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { AlunosContext } from "../components/layout/context/AlunosContext";
 import ModalAddTestemunhos from "../components/layout/ModalAddTestemunhos";
 
 function TestemunhosAlunos() {
   const testemunhosData = useContext(AlunosContext);
   const [open, setOpen] = useState(false);
+  const dispatch = useContext(AlunosDispatchContext)
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,21 +24,34 @@ function TestemunhosAlunos() {
   }));
 
   const handleSubmit = async (data) => {
-    // try {
-    //   const response = await fetch("/api/alunos", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(data)
-    //   });
-    //   if (!response.ok) {
-    //     throw new Error("Error ao adicionar testemunho")
-    //   }
-    //   const newTestemunho = await response.json();
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    try {
+      const response = await fetch("/api/TestemunhosAlunos", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        console.log(response);
+
+        throw new Error("Error ao adicionar testemunho");
+      }
+
+      const newTestemunho = await response.json();
+      dispatch(data);
+      console.log(newTestemunho);
+      setOpen(false);
+    } catch (error) {
+      alert(error.message);
+
+      console.error(error);
+    }
+    
+    setTimeout(() => setOpen(false), 2000);
   };
 
   return (
